@@ -1,10 +1,84 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f7f4"><title>Pixels interativos | Dhyego</title>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galáxia | Dhyego</title>
 <style>
-:root{color-scheme:light;--ink:#151816;--muted:#657069;--green:#07832c}*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}body{min-height:100svh;overflow:hidden;background:#f5f7f4;background-image:linear-gradient(rgba(30,65,42,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(30,65,42,.045) 1px,transparent 1px);background-size:12px 12px}canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}.corner{position:fixed;width:20px;height:20px;display:grid;grid-template-columns:repeat(2,10px);grid-template-rows:repeat(2,10px);z-index:1}.corner i:nth-child(1){background:#a7efc4}.corner i:nth-child(2){background:#8de3ad}.corner i:nth-child(3){background:#b8f0ce}.corner i:nth-child(4){background:#07832c}.tl{top:18px;left:18px}.tr{top:18px;right:18px;transform:rotate(180deg)}main{position:relative;z-index:2;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:32px 20px;text-align:center;pointer-events:none}.content{max-width:760px;transform:translateY(-2vh)}h1{font-weight:520;letter-spacing:-.045em;font-size:clamp(2.15rem,6vw,4rem);line-height:1.08;margin:0 0 20px}p{color:var(--muted);font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.55;max-width:610px;margin:0 auto 28px}.buttons{display:flex;gap:12px;justify-content:center;pointer-events:auto}button,.link{font-family:inherit;font-size:15px;border-radius:7px;padding:13px 22px;text-decoration:none;transition:transform .18s,box-shadow .18s,background .18s}button{font-weight:600;border:0;cursor:pointer}button:hover,.link:hover{transform:translateY(-2px);box-shadow:0 7px 18px #163b2422}.primary{color:white;background:var(--green)}.primary:hover{background:#066d25}.secondary,.link{color:#202622;background:#e8ece8;border:1px solid #d8ded9}.link{font-weight:550}.hint{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);color:#758079;font-size:13px;white-space:nowrap;z-index:2}.toast{position:fixed;left:50%;bottom:55px;transform:translate(-50%,12px);opacity:0;transition:.25s;background:#18211b;color:white;border-radius:8px;padding:10px 15px;font-size:13px;z-index:3;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:480px){.buttons{flex-direction:column;max-width:230px;margin:auto}.hint{font-size:11px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
-</style></head><body>
-<div class="corner tl" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="corner tr" aria-hidden="true"><i></i><i></i><i></i><i></i></div><canvas id="field" aria-hidden="true"></canvas>
-<main><section class="content"><h1>Os pixels seguem<br>o seu cursor</h1><p>Mova o mouse pela tela e veja as cores se espalharem. Clique para criar uma onda de quadradinhos.</p><div class="buttons"><button class="primary" id="start">Criar uma onda</button><button class="secondary" id="more">Saiba mais</button><a class="link" href="https://github.com/dhyegopisa">Meu GitHub</a></div></section></main><div class="hint">Mova o cursor · clique para criar uma explosão de pixels</div><div class="toast" id="toast" role="status">Cada clique cria uma nova onda de cores ✨</div>
+html,body{margin:0;overflow:hidden;background:#02040c}canvas{display:block;width:100vw;height:100dvh;touch-action:none;background:radial-gradient(ellipse at 64% 35%,#111329,transparent 55%),radial-gradient(ellipse at 20% 76%,#08172a,transparent 48%),#02040c}
+</style>
+<canvas aria-label="Galáxia em espiral. Mova o cursor ou arraste o dedo para inclinar a galáxia. Toque para pulsar."></canvas>
 <script>
-(()=>{const c=document.querySelector("#field"),x=c.getContext("2d"),colors=["#07832c","#39b86a","#a7efc4","#79c9f4","#b99aff","#f2a23a"];let w,h,d,ps=[],m={x:-1000,y:-1000},last=0;function size(){d=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)}function add(a,b,n,burst){for(let i=0;i<n;i++){let t=Math.random()*6.283,v=burst?1.2+Math.random()*4:.35+Math.random()*1.35;ps.push({x:a,y:b,vx:Math.cos(t)*v,vy:Math.sin(t)*v,l:1,s:5+Math.random()*7,col:colors[Math.floor(Math.random()*colors.length)],r:Math.random()*3,spin:(Math.random()-.5)*.16})}}addEventListener("resize",size);size();addEventListener("pointermove",e=>{m.x=e.clientX;m.y=e.clientY;if(performance.now()-last>18){add(m.x,m.y,2,false);last=performance.now()}});addEventListener("pointerdown",e=>{m.x=e.clientX;m.y=e.clientY;add(m.x,m.y,30,true)});function draw(){x.clearRect(0,0,w,h);ps=ps.filter(p=>p.l>.035);for(const p of ps){let a=m.x-p.x,b=m.y-p.y,z=Math.hypot(a,b);if(z<125&&z>2){p.vx+=a/z*.055;p.vy+=b/z*.055}p.vx*=.975;p.vy*=.975;p.x+=p.vx;p.y+=p.vy;p.l*=.984;p.r+=p.spin;x.save();x.globalAlpha=Math.min(1,p.l*1.7);x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.col;x.fillRect(-p.s/2,-p.s/2,p.s,p.s);x.restore()}requestAnimationFrame(draw)}draw();let toast=document.querySelector("#toast"),timer;document.querySelector("#more").onclick=()=>{toast.classList.add("show");clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove("show"),2200)};document.querySelector("#start").onclick=()=>add(w/2,h/2,70,true)})();
-</script></body></html>
+const sky = document.querySelector('canvas');
+const ctx = sky.getContext('2d');
+const disk = document.createElement('canvas');
+disk.width = disk.height = 1600;
+const dust = disk.getContext('2d');
+const random = Math.random;
+function scatter(){return random()+random()+random()-1.5}
+function glow(context,x,y,r,color,alpha){
+  const light=context.createRadialGradient(x,y,0,x,y,r);
+  light.addColorStop(0,'rgba('+color+','+alpha+')');
+  light.addColorStop(.35,'rgba('+color+','+alpha*.42+')');
+  light.addColorStop(1,'rgba('+color+',0)');
+  context.fillStyle=light;
+  context.fillRect(x-r,y-r,2*r,2*r);
+}
+dust.translate(800,800);
+dust.globalCompositeOperation='lighter';
+// Render the dense dust disk once, then project it with the camera each frame.
+for(let i=0;i<55000;i++){
+  const radius=730*Math.pow(random(),.79);
+  const arm=i%3;
+  const angle=arm*2*Math.PI/3 + 3.7*Math.log(1+radius/110) + scatter()*(.23+.55*Math.exp(-radius/140)) + .09*Math.sin(radius/37+arm);
+  const x=radius*Math.cos(angle)+scatter()*19;
+  const y=radius*Math.sin(angle)+scatter()*19;
+  const color=radius<140?'255,179,116':arm===1?'205,134,206':random()<.42?'127,203,238':'149,144,242';
+  const fade=Math.min(1,(750-radius)/180);
+  if(i<4200) glow(dust,x,y,8+random()*52,color,.024*fade);
+  else {
+    dust.fillStyle='rgba('+color+','+(.12+random()*.7)*fade+')';
+    const size=.45+Math.pow(random(),6)*2.5;
+    dust.fillRect(x,y,size,size);
+  }
+}
+for(const [radius,alpha] of [[190,.45],[76,.73],[28,.96],[11,1]]) glow(dust,0,0,radius,'255,207,159',alpha);
+const stars=Array.from({length:720},()=>({x:random(),y:random(),depth:random(),phase:random()*6.28}));
+let width,height,scale,aimX=0,aimY=0,panX=0,panY=0,pulse=-10000;
+const calm=matchMedia('(prefers-reduced-motion: reduce)');
+function resize(){
+  width=sky.clientWidth;height=sky.clientHeight;
+  scale=Math.min(devicePixelRatio,1.6);
+  sky.width=Math.round(width*scale);sky.height=Math.round(height*scale);
+}
+function aim(event){aimX=event.clientX/width*2-1;aimY=event.clientY/height*2-1}
+sky.onpointermove=aim;
+sky.onpointerdown=event=>{aim(event);pulse=performance.now()};
+sky.onpointerleave=()=>{aimX=aimY=0};
+function frame(now){
+  panX+=(aimX-panX)*.065;panY+=(aimY-panY)*.065;
+  const time=calm.matches?0:now/1000;
+  ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,width,height);
+  for(const star of stars){
+    const x=star.x*(width+54)-27+panX*star.depth*21;
+    const y=star.y*(height+54)-27+panY*star.depth*21;
+    ctx.globalAlpha=.22+star.depth*.54+.12*Math.sin(time*.7+star.phase);
+    ctx.fillStyle=star.phase<2?'#ffcaa0':'#c8dcff';
+    const size=.45+star.depth*1.3;
+    ctx.fillRect(x,y,size,size);
+    if(star.depth>.985){glow(ctx,x,y,9,'150,200,255',.35);ctx.fillRect(x-4,y,9,.6);ctx.fillRect(x,y-4,.6,9)}
+  }
+  ctx.globalAlpha=1;
+  const age=(now-pulse)/1000;
+  const surge=calm.matches?0:Math.exp(-3*age);
+  const diameter=Math.min(width*1.23,height*1.74)*(1+surge*.085);
+  ctx.save();ctx.translate(width*.5+panX*14,height*.51+panY*12);
+  ctx.rotate(-.37+panX*.14);ctx.scale(1,.53+panY*.13);
+  ctx.rotate(time*.019+panX*.16);ctx.drawImage(disk,-diameter/2,-diameter/2,diameter,diameter);
+  if(age<1.6&&!calm.matches){
+    ctx.strokeStyle='rgba(189,215,255,'+Math.pow(1-age/1.6,2)*.5+')';ctx.lineWidth=1.3;
+    ctx.beginPath();ctx.arc(0,0,diameter*(.012+age*.31),0,Math.PI*2);ctx.stroke();
+  }
+  ctx.restore();requestAnimationFrame(frame);
+}
+addEventListener('resize',resize);resize();requestAnimationFrame(frame);
+</script></html>
