@@ -1,5 +1,11 @@
 ![Dhyego Pisa · Software Engineering Student · Engineering in Progress](assets/banner.svg)
 
+## Play Ignition Lab
+
+[![Ignition Lab arcade. Start the three-circuit puzzle.](arcade/panel-2.svg)](https://github.com/dhyegopisa/dhyegopisa/blob/main/arcade/play-2.md)
+
+[**Start the engine →**](https://github.com/dhyegopisa/dhyegopisa/blob/main/arcade/play-2.md) · Flip pairs of lights until all three are on. Can you find the two-move cold start?
+
 ## The developer
 
 I’m Dhyego Pisa, a software engineering student. My projects start with questions I can answer in code. In DRIVE STATS, that question is simple: how far did a car travel on each litre of fuel? As I study systems architecture, I want to get better at explaining the decisions between a question like that and a working application.
