@@ -1,75 +1,25 @@
-![Dhyego Pisa · Software Engineering Student · Engineering in Progress](assets/banner.svg)
+<h1 align="center">Oi, eu sou o Dhyego</h1>
+<p align="center"><strong>Python · HTML · Projetos na prática</strong></p>
+<p align="center">Uso o GitHub para acompanhar o que estou aprendendo, dos exercícios de lógica às páginas que construo para a web.</p>
 
-## Play Ignition Lab
+## O que estou praticando
 
-[![Ignition Lab arcade. Start the three-circuit puzzle.](arcade/panel-2.svg)](https://github.com/dhyegopisa/dhyegopisa/blob/main/arcade/play-2.md)
+- **Python** — lógica de programação e orientação a objetos.
+- **HTML e CSS** — estrutura e visual de páginas web.
 
-[**Start the engine →**](https://github.com/dhyegopisa/dhyegopisa/blob/main/arcade/play-2.md) · Flip pairs of lights until all three are on. Can you find the two-move cold start?
+## Minha atividade no GitHub
 
-## The developer
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dhyegopisa/dhyegopisa/snake/snake-dark.svg">
+  <img alt="Cobrinha percorrendo meu calendário de contribuições" src="https://raw.githubusercontent.com/dhyegopisa/dhyegopisa/snake/snake.svg">
+</picture>
 
-I’m Dhyego Pisa, a software engineering student. My projects start with questions I can answer in code. In DRIVE STATS, that question is simple: how far did a car travel on each litre of fuel? As I study systems architecture, I want to get better at explaining the decisions between a question like that and a working application.
+## Projetos para explorar
 
-## Selected work
+| Projeto | O que você encontra |
+| :--- | :--- |
+| [Site Hot Wheels](https://github.com/dhyegopisa/Site-HotWheels) | Um site com tema Hot Wheels. |
+| [Exercícios de Python](https://github.com/dhyegopisa/exercicios-python) | Exercícios para praticar lógica em Python. |
+| [POO](https://github.com/dhyegopisa/POO) | Prática de programação orientada a objetos em Python. |
 
-### [DRIVE STATS](https://github.com/dhyegopisa/DRIVE-STATS)
-
-A fuel-consumption calculator built around two measurements: distance travelled in kilometres and fuel used in litres. The [calculator interface](https://github.com/dhyegopisa/DRIVE-STATS/blob/main/index.html) shows how units, labels and input fields define the problem before any calculation happens.
-
-### [Hot Wheels](https://github.com/dhyegopisa/Site-HotWheels)
-
-A multi-page HTML project for practising navigation and form design.
-
-<details>
-<summary>Take a three-file code tour</summary>
-
-1. [Home](https://github.com/dhyegopisa/Site-HotWheels/blob/main/index.html) introduces the theme and links the pages.
-2. [Registration](https://github.com/dhyegopisa/Site-HotWheels/blob/main/cadastro.html) groups the fields for a new registration.
-3. [Contact](https://github.com/dhyegopisa/Site-HotWheels/blob/main/contato.html) gives a different task its own page.
-
-</details>
-
-### [Python notebook](https://github.com/dhyegopisa/exercicios-python)
-
-Twenty-five exercises in five sets, moving from variables and conditions through loops to lists. My [object-oriented programming studies](https://github.com/dhyegopisa/POO) explore how to organise Python code around classes and objects.
-
-## Engineering process
-
-![Think → Design → Build → Improve, with a return path to Think](assets/process.svg)
-
-For a calculator, that loop starts with the units. Sketch the two inputs, build the smallest useful calculation, then ask what should happen when someone enters zero litres.
-
-## Engineering roadmap
-
-| Stage | Focus |
-| --- | --- |
-| In practice | Python for logic exercises. HTML and CSS for web pages. |
-| Studying | Object-oriented programming and how to divide responsibilities between classes. |
-| Next | Add tests for boundary cases in a small project and document one architecture decision in English. |
-
-<details>
-<summary>developer.json</summary>
-
-```json
-{
-  "name": "Dhyego Pisa",
-  "fieldOfStudy": "Software Engineering",
-  "interests": ["software development", "systems architecture"],
-  "longTermGoal": "Build software on an international engineering team"
-}
-```
-
-</details>
-
-## Development log
-
-| Portfolio edition | Change |
-| --- | --- |
-| v0.2 | Added DRIVE STATS and a roadmap connecting current coursework to the next engineering questions. |
-| v0.1 | Published a guided tour of Hot Wheels alongside the Python notebook. |
-
-[GitHub profile](https://github.com/dhyegopisa) · [All repositories](https://github.com/dhyegopisa?tab=repositories) · [Contribution history](https://github.com/dhyegopisa#js-contribution-activity)
-
----
-
-**END OF FILE — NOT THE END OF DEVELOPMENT.**
+<p align="center"><a href="https://github.com/dhyegopisa?tab=repositories">Ver todos os meus repositórios →</a></p>
