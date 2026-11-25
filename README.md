@@ -4,7 +4,7 @@
 
 ## Experiência interativa
 
-<p align="center"><a href="https://dhyegopisa.github.io/dhyegopisa/">✨ Abrir a demonstração interativa de pixels</a></p>
+<p align="center"><a href="https://dhyegopisa.github.io/dhyegopisa/"> ???</a></p>
 <p align="center">Mova o cursor e clique para espalhar quadradinhos coloridos.</p>
 
 ## O que estou praticando
