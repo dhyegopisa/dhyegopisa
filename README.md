@@ -4,8 +4,8 @@
 
 
 
-<p align="center"><a href="https://file:///C:/Users/dhyeg/Downloads/index.html/dhyegopisa/"> ???</a></p>
-<p align="center">Mova o cursor e clique para espalhar quadradinhos coloridos.</p>
+<p align="center"><a href="file:///C:/Users/dhyeg/Downloads/index.html> ???</a></p>
+<p align="center">???</p>
 
 ## O que estou praticando
 
