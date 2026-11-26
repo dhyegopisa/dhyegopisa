@@ -2,9 +2,9 @@
 <p align="center"><strong>Python · HTML · Projetos na prática</strong></p>
 <p align="center">Uso o GitHub para acompanhar o que estou aprendendo, dos exercícios de lógica às páginas que construo para a web.</p>
 
-## Experiência interativa
 
-<p align="center"><a href="https://dhyegopisa.github.io/dhyegopisa/"> ???</a></p>
+
+<p align="center"><a href="https://file:///C:/Users/dhyeg/Downloads/index.html/dhyegopisa/"> ???</a></p>
 <p align="center">Mova o cursor e clique para espalhar quadradinhos coloridos.</p>
 
 ## O que estou praticando
